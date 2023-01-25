@@ -16,8 +16,8 @@ def create_option_for_calculation(data):
     if (user_choice_operation == 4) and (argument_2 != 0):
         return division(argument_1, argument_2)
     else:
-        logging.warning("Zero division error")
-        return print('You cannot division on zero')
+        logging.warning("User entered incorrect data")
+        return print('You cannot division on zero and entered number < 1 and > 6')
 
 
 def summation(argument_1, argument_2):

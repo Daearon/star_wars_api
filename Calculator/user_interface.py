@@ -1,4 +1,4 @@
-from exception import *
+from utils import *
 from logg import logging
 import sys
 from mod_calc import *
@@ -33,11 +33,11 @@ def user_menu():
     elif user_choice == 3:
         logging.info("Calculator terminated by user")
         print("Good, see you later")
-        return sys.exit
+        return sys.exit()
     else:
         logging.info("Calculator terminated because user entered incorrect data")
         print("You entered incorrect data, calculator will be terminated")
-        return
+        return sys.exit()
     return argument_1, argument_2, user_choice_operation
 
 
