@@ -5,7 +5,7 @@ import sys
 
 def running_program():
     user_menu_list = ["Add record -->", "View record -->", "Dismiss civil_servant -->",
-                      "Making an power of attorney -->", "Exit -->"]
+                      "Making an power of attorney -->", "Export -->", "Exit -->"]
     choice_for_user = create_menu(user_menu_list)
     match choice_for_user[0]:
         case 1:
@@ -17,6 +17,8 @@ def running_program():
         case 4:
             make_update_bd()
         case 5:
+            export_bd()
+        case 7:
             print("All right, thank you for use our date base. Bye")
             sys.exit()
         case _:

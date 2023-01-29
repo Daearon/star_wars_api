@@ -111,3 +111,9 @@ def make_update_bd():
     cur.execute(sql_update_query, (user_choice,))
     conn.commit()
     print("Thank you for your work, now data is updated")
+
+
+def export_bd():
+    with open('copy.db', 'w') as f:
+        for line in conn.iterdump():
+            f.write('%s\n' % line)
