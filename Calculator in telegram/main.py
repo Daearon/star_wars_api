@@ -11,14 +11,20 @@ from telegram.ext import (
     ApplicationBuilder,
 )
 
-logging.basicConfig(level=logging.INFO, filename="calculation_log.log",
+logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s - %(module)s - %(levelname)s - %(funcName)s - %(message)s",
-                    datefmt='%d-%m-%Y %H:%M:%S')
-
+                    datefmt='%d-%m-%Y %H:%M:%S',
+                    handlers = [logging.FileHandler("calculation_log.log"), logging.StreamHandler()])
 logger = logging.getLogger(__name__)
 
-CHOICE, FIRST_COMPLEX, SECOND_COMPLEX, FIRST_RATIONAL, SECOND_RATIONAL, \
+
+CHOICE, FIRST_COMPLEX, SECOND_COMPLEX, FIRST_RATIONAL, SECOND_RATIONAL,\
 OPERATION_CHOICE_COMPLEX, OPERATION_CHOICE_RATIONAL = range(7)
+
+
+reply_markup_operation=ReplyKeyboardMarkup(
+    [["+", "-", "*", "/", "**", "sqrt"]], one_time_keyboard=True, input_field_placeholder="Какая операция?"
+)
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
@@ -50,10 +56,10 @@ async def choice(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 async def first_complex(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     user = update.message.from_user
     logger.info("Пользователь ввел число: %s: %s", user.first_name, update.message.text)
-    get_complex = update.message.text
-    if ' ' in get_complex and (get_complex.replace(' ', '')).isdigit():
-        get_complex = get_complex.split(' ')
-        complex_one = complex(int(get_complex[0]), int(get_complex[1]))
+    user_first_complex = update.message.text
+    if ' ' in user_first_complex and (user_first_complex.replace(' ', '')).isdigit():
+        user_first_complex = user_first_complex.split(' ')
+        complex_one = complex(int(user_first_complex[0]), int(user_first_complex[1]))
         context.user_data["complex_one"] = complex_one
         await update.message.reply_text(f"Первое комплексное число - {complex_one}\n"
                                         f" Введите через пробел ещё два целых числа (например, 2 6): ")
@@ -65,22 +71,19 @@ async def first_complex(update: Update, context: ContextTypes.DEFAULT_TYPE) -> i
 async def second_complex(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     user = update.message.from_user
     logger.info("Пользователь ввел число: %s: %s", user.first_name, update.message.text)
-    get_second_complex = update.message.text
-    if ' ' in get_second_complex and (get_second_complex.replace(' ', '')).isdigit():
-        get_second_complex = get_second_complex.split(' ')
-        complex_two = complex(int(get_second_complex[0]), int(get_second_complex[1]))
+    user_second_complex = update.message.text
+    if ' ' in user_second_complex and (user_second_complex.replace(' ', '')).isdigit():
+        user_second_complex = user_second_complex.split(' ')
+        complex_two = complex(int(user_second_complex[0]), int(user_second_complex[1]))
         context.user_data["complex_two"] = complex_two
-        await update.message.reply_text(f"Второе комплексное число - {complex_two}")
-    else:
-        await update.message.reply_text('Нужно ввести числа')
-    reply_keyboard = [["+", "-", "*", "/", "**", "sqrt"]]
-    await update.message.reply_text(
-        "Какую математическую операцию выберете?",
-        reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=True, input_field_placeholder="Какая операция?"
+        await context.bot.send_message(update.effective_message.chat_id, f"Второе комплексное число - {complex_two}")
+        await update.message.reply_text(
+            "Какую математическую операцию выберете?",
+            reply_markup=reply_markup_operation
         )
-    )
-    return OPERATION_CHOICE_COMPLEX
+        return OPERATION_CHOICE_COMPLEX
+    else:
+        await update.message.reply_text("Нужно ввести числа")
 
 
 async def operation_choice_complex(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
@@ -114,10 +117,10 @@ async def operation_choice_complex(update: Update, context: ContextTypes.DEFAULT
 async def first_rational(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     user = update.message.from_user
     logger.info("Пользователь ввел число: %s: %s", user.first_name, update.message.text)
-    get_rational = update.message.text
-    if ' ' in get_rational and (get_rational.replace(' ', '')).isdigit():
-        get_rational = get_rational.split(' ')
-        rational_one = float(int(get_rational[0]) / int(get_rational[1]))
+    user_first_rational = update.message.text
+    if ' ' in user_first_rational and (user_first_rational.replace(' ', '')).isdigit():
+        user_first_rational = user_first_rational.split(' ')
+        rational_one = float(int(user_first_rational[0]) / int(user_first_rational[1]))
         context.user_data["rational_one"] = rational_one
         await update.message.reply_text(f"Первое рациональное число - {rational_one}\n"
                                         f" Введите через пробел ещё два целых числа (например, 2 6): ")
@@ -129,23 +132,19 @@ async def first_rational(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 async def second_rational(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     user = update.message.from_user
     logger.info("Пользователь ввел число: %s: %s", user.first_name, update.message.text)
-    get_second_rational = update.message.text
-    if ' ' in get_second_rational and (get_second_rational.replace(' ', '')).isdigit():
-        get_second_rational = get_second_rational.split(' ')
-        rational_two = float(int(get_second_rational[0]) / int(get_second_rational[1]))
+    user_second_rational = update.message.text
+    if ' ' in user_second_rational and (user_second_rational.replace(' ', '')).isdigit():
+        user_second_rational = user_second_rational.split(' ')
+        rational_two = float(int(user_second_rational[0]) / int(user_second_rational[1]))
         context.user_data["rational_two"] = rational_two
-        await update.message.reply_text(f"Второе комплексное число - {rational_two}")
-    else:
-        await update.message.reply_text('Нужно ввести числа')
-    reply_keyboard = [["+", "-", "*", "/", "**", "sqrt"]]
-    await update.message.reply_text(
-        "Какую математическую операцию выберете?",
-        reply_markup=ReplyKeyboardMarkup(
-            reply_keyboard, one_time_keyboard=True, input_field_placeholder="Какая операция?"
+        await context.bot.send_message(update.effective_message.chat_id, f"Второе рациональное число - {rational_two}")
+        await update.message.reply_text(
+            "Какую математическую операцию выберете?",
+            reply_markup=reply_markup_operation
         )
-    )
-    return OPERATION_CHOICE_RATIONAL
-
+        return OPERATION_CHOICE_RATIONAL
+    else:
+        await update.message.reply_text("Нужно ввести числа")
 
 async def operation_choice_rational(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     user = update.message.from_user
