@@ -1,0 +1,119 @@
+31-01-2023 05:14:10 - _application - INFO - start - Application started
+31-01-2023 05:14:26 - _application - INFO - stop - Application is stopping. This might take a moment.
+31-01-2023 05:14:26 - _application - INFO - stop - Application.stop() complete
+31-01-2023 05:14:28 - _application - INFO - start - Application started
+31-01-2023 05:15:00 - main - INFO - first_color - „P„u„‚„r„„z „ˆ„r„u„„ Star: „R„y„~„y„z
+31-01-2023 05:15:01 - main - INFO - second_color - „B„„„€„‚„€„z „ˆ„r„u„„ Star: „K„‚„p„ƒ„~„„z
+31-01-2023 05:16:09 - _application - INFO - stop - Application is stopping. This might take a moment.
+31-01-2023 05:16:09 - _application - INFO - stop - Application.stop() complete
+31-01-2023 05:16:11 - _application - INFO - start - Application started
+31-01-2023 07:00:00 - _application - INFO - stop - Application is stopping. This might take a moment.
+31-01-2023 07:00:00 - _application - INFO - stop - Application.stop() complete
+31-01-2023 07:05:29 - _application - INFO - start - Application started
+31-01-2023 07:05:42 - main - INFO - choice - „B„„q„€„‚ „„„y„„p „‰„y„ƒ„|„p: Star: „K„€„}„„|„u„{„ƒ„~„€„u „‰„y„ƒ„|„€
+31-01-2023 07:05:51 - main - INFO - first_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 3 6
+31-01-2023 07:06:03 - main - INFO - second_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 2 6
+31-01-2023 07:06:06 - main - INFO - operation_choice_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„„q„‚„p„| „€„„u„‚„p„ˆ„y„ Star: +
+31-01-2023 07:06:06 - _application - ERROR - process_error - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\alexa\OneDrive\Desktop\GB Python\Calculator in telegram\hello\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\alexa\OneDrive\Desktop\GB Python\Calculator in telegram\hello\Lib\site-packages\telegram\ext\_conversationhandler.py", line 824, in handle_update
+    new_state: object = await handler.handle_update(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alexa\OneDrive\Desktop\GB Python\Calculator in telegram\hello\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object int can't be used in 'await' expression
+31-01-2023 07:06:23 - main - INFO - operation_choice_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„„q„‚„p„| „€„„u„‚„p„ˆ„y„ Star: -
+31-01-2023 07:06:23 - _application - ERROR - process_error - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\alexa\OneDrive\Desktop\GB Python\Calculator in telegram\hello\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\alexa\OneDrive\Desktop\GB Python\Calculator in telegram\hello\Lib\site-packages\telegram\ext\_conversationhandler.py", line 824, in handle_update
+    new_state: object = await handler.handle_update(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alexa\OneDrive\Desktop\GB Python\Calculator in telegram\hello\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object int can't be used in 'await' expression
+31-01-2023 07:07:04 - _application - INFO - stop - Application is stopping. This might take a moment.
+31-01-2023 07:07:04 - _application - INFO - stop - Application.stop() complete
+31-01-2023 07:07:05 - _application - INFO - start - Application started
+31-01-2023 07:07:09 - main - INFO - choice - „B„„q„€„‚ „„„y„„p „‰„y„ƒ„|„p: Star: „Q„p„ˆ„y„€„~„p„|„„~„€„u „‰„y„ƒ„|„€
+31-01-2023 07:07:12 - main - INFO - first_rational - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 4
+31-01-2023 07:07:14 - main - INFO - first_rational - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 4 6
+31-01-2023 07:07:18 - main - INFO - second_rational - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 2 6
+31-01-2023 07:07:21 - main - INFO - operation_choice_rational - „P„€„|„„x„€„r„p„„„u„|„ „r„„q„‚„p„| „€„„u„‚„p„ˆ„y„ Star: -
+31-01-2023 07:07:21 - _application - ERROR - process_error - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\alexa\OneDrive\Desktop\GB Python\Calculator in telegram\hello\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\alexa\OneDrive\Desktop\GB Python\Calculator in telegram\hello\Lib\site-packages\telegram\ext\_conversationhandler.py", line 824, in handle_update
+    new_state: object = await handler.handle_update(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alexa\OneDrive\Desktop\GB Python\Calculator in telegram\hello\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object int can't be used in 'await' expression
+31-01-2023 07:12:08 - _application - INFO - stop - Application is stopping. This might take a moment.
+31-01-2023 07:12:08 - _application - INFO - stop - Application.stop() complete
+31-01-2023 07:12:09 - _application - INFO - start - Application started
+31-01-2023 07:15:43 - _application - INFO - stop - Application is stopping. This might take a moment.
+31-01-2023 07:15:43 - _application - INFO - stop - Application.stop() complete
+31-01-2023 07:15:44 - _application - INFO - start - Application started
+31-01-2023 07:15:49 - main - INFO - choice - „B„„q„€„‚ „„„y„„p „‰„y„ƒ„|„p: Star: „Q„p„ˆ„y„€„~„p„|„„~„€„u „‰„y„ƒ„|„€
+31-01-2023 07:15:53 - main - INFO - first_rational - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 2 6
+31-01-2023 07:15:55 - main - INFO - second_rational - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 24
+31-01-2023 07:16:00 - main - INFO - operation_choice_rational - „P„€„|„„x„€„r„p„„„u„|„ „r„„q„‚„p„| „€„„u„‚„p„ˆ„y„ Star: sqrt
+31-01-2023 07:16:00 - _application - ERROR - process_error - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\alexa\OneDrive\Desktop\GB Python\Calculator in telegram\hello\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\alexa\OneDrive\Desktop\GB Python\Calculator in telegram\hello\Lib\site-packages\telegram\ext\_conversationhandler.py", line 824, in handle_update
+    new_state: object = await handler.handle_update(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alexa\OneDrive\Desktop\GB Python\Calculator in telegram\hello\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object int can't be used in 'await' expression
+31-01-2023 08:49:46 - _application - INFO - stop - Application is stopping. This might take a moment.
+31-01-2023 08:49:46 - _application - INFO - stop - Application.stop() complete
+31-01-2023 08:49:47 - _application - INFO - start - Application started
+31-01-2023 08:49:53 - main - INFO - choice - „B„„q„€„‚ „„„y„„p „‰„y„ƒ„|„p: Star: „K„€„}„„|„u„{„ƒ„~„€„u „‰„y„ƒ„|„€
+31-01-2023 08:49:57 - main - INFO - first_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 3 5
+31-01-2023 08:50:02 - main - INFO - second_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 3 5
+31-01-2023 08:50:05 - main - INFO - operation_choice_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„„q„‚„p„| „€„„u„‚„p„ˆ„y„ Star: *
+31-01-2023 08:50:05 - _application - ERROR - process_error - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\alexa\OneDrive\Desktop\GB Python\Calculator in telegram\hello\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\alexa\OneDrive\Desktop\GB Python\Calculator in telegram\hello\Lib\site-packages\telegram\ext\_conversationhandler.py", line 824, in handle_update
+    new_state: object = await handler.handle_update(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\alexa\OneDrive\Desktop\GB Python\Calculator in telegram\hello\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object int can't be used in 'await' expression
+31-01-2023 08:51:47 - _application - INFO - stop - Application is stopping. This might take a moment.
+31-01-2023 08:51:47 - _application - INFO - stop - Application.stop() complete
+31-01-2023 08:52:46 - _application - INFO - start - Application started
+31-01-2023 08:52:49 - main - INFO - choice - „B„„q„€„‚ „„„y„„p „‰„y„ƒ„|„p: Star: „K„€„}„„|„u„{„ƒ„~„€„u „‰„y„ƒ„|„€
+31-01-2023 08:52:51 - main - INFO - first_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 2 4
+31-01-2023 08:52:54 - main - INFO - second_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 5 7
+31-01-2023 08:52:56 - main - INFO - operation_choice_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„„q„‚„p„| „€„„u„‚„p„ˆ„y„ Star: -
+31-01-2023 08:53:28 - main - INFO - choice - „B„„q„€„‚ „„„y„„p „‰„y„ƒ„|„p: Star: „Q„p„ˆ„y„€„~„p„|„„~„€„u „‰„y„ƒ„|„€
+31-01-2023 08:53:31 - main - INFO - first_rational - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 4 6
+31-01-2023 08:53:35 - main - INFO - second_rational - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 24 67
+31-01-2023 08:53:40 - main - INFO - operation_choice_rational - „P„€„|„„x„€„r„p„„„u„|„ „r„„q„‚„p„| „€„„u„‚„p„ˆ„y„ Star: +
+31-01-2023 08:54:16 - main - INFO - choice - „B„„q„€„‚ „„„y„„p „‰„y„ƒ„|„p: Star: „K„€„}„„|„u„{„ƒ„~„€„u „‰„y„ƒ„|„€
+31-01-2023 08:54:19 - main - INFO - first_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 45
+31-01-2023 08:54:23 - main - INFO - first_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 46
+31-01-2023 08:54:25 - main - INFO - first_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 23
+31-01-2023 08:54:28 - main - INFO - first_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 24
+31-01-2023 08:54:31 - main - INFO - first_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 24 34
+31-01-2023 08:54:32 - main - INFO - second_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„r„u„| „‰„y„ƒ„|„€: Star: 23
+31-01-2023 08:54:35 - main - INFO - operation_choice_complex - „P„€„|„„x„€„r„p„„„u„|„ „r„„q„‚„p„| „€„„u„‚„p„ˆ„y„ Star: +
+31-01-2023 08:58:22 - _application - INFO - stop - Application is stopping. This might take a moment.
+31-01-2023 08:58:22 - _application - INFO - stop - Application.stop() complete
+31-01-2023 08:58:23 - _application - INFO - start - Application started
