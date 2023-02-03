@@ -10,7 +10,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s - %(module)s - %(levelname)s - %(funcName)s - %(message)s",
                     datefmt='%d-%m-%Y %H:%M:%S',
-                    handlers = [logging.FileHandler("calculation_log.log"), logging.StreamHandler()])
+                    handlers = [logging.FileHandler("game_log.log"), logging.StreamHandler()])
 logger = logging.getLogger(__name__)
 
 
