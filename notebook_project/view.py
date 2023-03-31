@@ -1,5 +1,5 @@
 from controller import Controller
-from list_of_commands import *
+from console_utils import ConsoleUtils
 
 
 class View:
@@ -8,13 +8,15 @@ class View:
         self.controller = controller
 
     @staticmethod
-    def make_validate_input(input_string):
-        if not input_string.isdigit():
-            return input("Only digit is allowed. Try again:\n")
-        else:
-            return input_string
+    def print_note(note):
+        print(note)
 
-    def make_validate_id(self, id) -> bool:
+    @staticmethod
+    def print_notes_list(notes_list):
+        for note in notes_list:
+            print(note)
+
+    def check_id_exists(self, id) -> bool:
         notes_list = self.controller.read_notebook()
         id_list = [note.get_id() for note in notes_list]
         if id not in id_list:
@@ -22,69 +24,70 @@ class View:
         else:
             return True
 
-    @staticmethod
-    def print_note(note):
-        print(f'ID: {note.get_id()} Title: {note.get_title()} Body: {note.get_body()} Date: {note.get_date()}')
+    def show_all_records(self):
+        notes = self.controller.read_notebook()
+        self.print_notes_list(notes)
 
-    @staticmethod
-    def print_notes_list(notes_list):
-        for note in notes_list:
-            print(
-                f'ID: {note.get_id()} Title: {note.get_title()} Body: {note.get_body()} Date: {note.get_date()}')
+    def create_new_record(self):
+        title = ConsoleUtils.retrieve_str('Enter title of your record: ')
+        body = ConsoleUtils.retrieve_str('Enter body of your record: ')
+        self.controller.create_note(title, body)
+        print(f'New record was successfully created\n')
+
+    def find_record_by_ID_and_edit_it(self):
+        id = ConsoleUtils.retrieve_digit("Input ID: ")
+        if self.check_id_exists(id):
+            new_title = input('Enter new title of your record: ')
+            new_body = input('Enter new body of your record: ')
+            self.controller.update_note(id, new_title, new_body)
+            print(f'Record with ID: {id} was successfully updated\n')
+        else:
+            print('No such ID, try again\n')
+
+    def find_record_by_ID_and_delete_it(self):
+        id = ConsoleUtils.retrieve_digit('Input ID: ')
+        if self.check_id_exists(id):
+            self.controller.delete_note(id)
+            print(f'Record with ID: {id} was successfully deleted\n')
+        else:
+            print('No such ID, try again\n')
+
+    def find_record_by_ID(self):
+        id = ConsoleUtils.retrieve_digit('Input ID: ')
+        if self.check_id_exists(id):
+            note = self.controller.find_by_id(id)
+            self.print_note(note)
+        else:
+            print('No such ID, try again\n')
+
+    def find_records_by_date(self):
+        date = input('Enter date (format: YYYY-MM-DD or YYYY-MM or YYYY)\n')
+        result = self.controller.filter_by_date(date)
+        if len(result) == 0:
+            print('Nothing was found\n')
+        else:
+            self.print_notes_list(result)
+
+    def stop_this_program(self):
+        print("See you later")
+        quit()
 
     def run(self):
+        menu_list = {1: ("show all records", self.show_all_records),
+                     2: ("create new record", self.create_new_record),
+                     3: ("find record by ID and edit it", self.find_record_by_ID_and_edit_it),
+                     4: ("find record by ID and delete it", self.find_record_by_ID_and_delete_it),
+                     5: ("find record by ID", self.find_record_by_ID),
+                     6: ("find records by date", self.find_records_by_date),
+                     7: ("stop this program", self.stop_this_program)}
+
+        list_of_commands = ""
+        for menu_position in menu_list:
+            list_of_commands += f"{menu_position} - {menu_list[menu_position][0]} \n"
+
         while True:
-            command = input(list_of_commands)
-            match command:
-                case '1':
-                    notes = self.controller.read_notebook()
-                    self.print_notes_list(notes)
-                    continue
-                case '2':
-                    title = input('Enter title of your record: ')
-                    body = input('Enter body of your record: ')
-                    self.controller.create_note(title, body)
-                    print(f'New record was successfully created\n')
-                    continue
-                case '3':
-                    id = int(self.make_validate_input(input('Enter ID: ')))
-                    if self.make_validate_id(id):
-                        new_title = input('Enter new title of your record: ')
-                        new_body = input('Enter new body of your record: ')
-                        self.controller.update_note(id, new_title, new_body)
-                        print(f'Record with ID: {id} was successfully updated\n')
-                        continue
-                    else:
-                        print('No such ID, try again\n')
-                        continue
-                case '4':
-                    id = int(self.make_validate_input(input('Enter ID: ')))
-                    if self.make_validate_id(id):
-                        self.controller.delete_note(id)
-                        print(f'Record with ID: {id} was successfully deleted\n')
-                        continue
-                    else:
-                        print('No such ID, try again\n')
-                        continue
-                case '5':
-                    id = int(self.make_validate_input(input('Enter ID: ')))
-                    if self.make_validate_id(id):
-                        note = self.controller.find_by_id(id)
-                        self.print_note(note)
-                        continue
-                    else:
-                        print('No such ID, try again\n')
-                        continue
-                case '6':
-                    date = input('Enter date (format: YYYY-MM-DD or YYYY-MM or YYYY)\n')
-                    result = self.controller.filter_by_date(date)
-                    if len(result) == 0:
-                        print('Nothing was found\n')
-                        continue
-                    else:
-                        self.print_notes_list(result)
-                        continue
-                case '7':
-                    break
-                case _:
-                    print('Wrong command. Try again.\n')
+            command = ConsoleUtils.retrieve_digit(list_of_commands)
+            if command not in menu_list:
+                print('Wrong command. Try again.\n')
+            else:
+                menu_list[command][1]()

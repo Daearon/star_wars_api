@@ -8,6 +8,9 @@ class Note:
         self.body = body
         self.date = date
 
+    def __str__(self):
+        return f'ID: {self.get_id()} Title: {self.get_title()} Body: {self.get_body()} Date: {self.get_date()}'
+
     def get_id(self):
         return self.id
 

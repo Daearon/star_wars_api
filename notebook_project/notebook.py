@@ -1,28 +1,31 @@
+import csv
 import datetime
-
 from note import Note
 
 
 class Notebook:
+    file_name = 'notes.csv'
+    header = ['id', 'title', 'body', 'date']
 
-    @staticmethod
-    def read_notes():
+    def read_notes(self) -> [Note]:
         lines = []
-        f = open('notes.csv', 'r')
-        for line in f:
-            note_parts = line.strip('\n').split(';')
-            lines.append(Note(int(note_parts[0]), note_parts[1], note_parts[2], note_parts[3]))
-        f.close()
+
+        with open(self.file_name, encoding='UTF8') as f:
+            csv_reader = csv.reader(f)
+            for line_no, line in enumerate(csv_reader, 1):
+                if line_no == 1:  # пропускаем первую строку с заголовками
+                    continue
+                lines.append(Note(int(line[0]), line[1], line[2], line[3]))
         if not lines:
             print("Record is not found")
         return lines
 
-    @staticmethod
-    def write_notes(notes_list: [Note]):
-        f = open('notes.csv', 'w')
-        for note in notes_list:
-            f.write(f'{str(note.get_id())};{note.get_title()};{note.get_body()};{note.get_date()}\n')
-        f.close()
+    def write_notes(self, notes_list: [Note]):
+        with open(self.file_name, 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(self.header)
+            for note in notes_list:
+                writer.writerow([note.get_id(), note.get_title(), note.get_body(), note.get_date()])
 
     def create_id(self) -> int:
         notes_list = self.read_notes()

@@ -7,7 +7,7 @@ class Controller:
     def __init__(self, notebook: Notebook):
         self.notebook = notebook
 
-    def read_notebook(self) -> [Note]:
+    def read_notebook(self):
         notes = self.notebook.read_notes()
         return notes
 
