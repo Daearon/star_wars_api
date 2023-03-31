@@ -492,3 +492,6 @@ AttributeError: 'function' object has no attribute 'check_update'
 31-01-2023 10:36:17 - main - INFO - operation_choice_rational - „P„€„|„„x„€„r„p„„„u„|„ „r„„q„‚„p„| „€„„u„‚„p„ˆ„y„ Star: *
 31-01-2023 10:36:42 - _application - INFO - stop - Application is stopping. This might take a moment.
 31-01-2023 10:36:42 - _application - INFO - stop - Application.stop() complete
+31-01-2023 10:50:13 - _application - INFO - start - Application started
+31-01-2023 12:08:42 - _application - INFO - stop - Application is stopping. This might take a moment.
+31-01-2023 12:08:42 - _application - INFO - stop - Application.stop() complete
